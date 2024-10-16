@@ -96,7 +96,6 @@ main {
     color: var(--profile-links-color); /* Üzerine gelinen ikonun rengi */
 }
 
-
 .social-media .works-link {
     color: var(--secondry-text-color);
     display: block;
@@ -274,6 +273,10 @@ main {
         padding: 20px;
     }
 
+    .profile-img {
+        margin-top: 10px;
+    }
+
     .social-media h2 {
         color: var(--secondry-text-color);
         margin: 20px 0 0px;
@@ -296,7 +299,7 @@ main {
         width: 100%;
         position:relative;
         flex-direction:column;
-        padding: 0px 0px 10px 0px;
+        padding: 0px 0px 0px 0px;
     }
 
     .art-gallery {
