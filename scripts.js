@@ -426,7 +426,7 @@ cvLink.addEventListener('click', function(event) {
     event.preventDefault(); // Varsayılan link davranışını engelle
     
     // PDF dosyasının yolunu belirtiyoruz
-    const pdfUrl = 'cv(2024-temmuz).pdf'; // Buraya CV PDF dosyanın yolunu yaz
+    const pdfUrl = 'resume.pdf'; // Buraya CV PDF dosyanın yolunu yaz
     
     // Yeni sekmede PDF'i açıyoruz
     window.open(pdfUrl, '_blank');
