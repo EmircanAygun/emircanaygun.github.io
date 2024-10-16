@@ -1,0 +1,361 @@
+/* Genel ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: #fff;
+    --main-text-color: #000000; 
+    --secondry-text-color: #666;
+    --primary-font: "Montserrat", sans-serif;
+    --secondary-font: 'Playfair Display', serif;
+    --profile-links-color: #1F1F1F;
+    --profile-links-hover-color: #999;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--main-bg-color);
+    color:  var(--main-text-color);
+}
+
+.favicon {
+    width: 100px; /* Resmin genişliği */
+    height: 100px; /* Resmin yüksekliği */
+    border-radius: 50%; /* Resmi daire yapmak için */
+    object-fit: cover; /* Taşmayı önlemek için resmi kırpma */
+}
+
+main {
+    display: flex;
+    margin-left: 235px;
+    padding: 50px;
+    justify-content: flex-start;
+}
+
+/* Sol bölüm: Sosyal medya ve profil */
+.social-media {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    padding: 50px;
+    width: 285px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-media h2 {
+    color: var(--secondry-text-color);
+    margin: 20px 0 10px;
+    font-size: 24px;
+    letter-spacing: .1em;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.profile-links {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    gap: 15px; /* İkonlar arasındaki boşluğu ayarla */
+}
+
+.profile-links li {
+    margin: 20px 0;
+}
+
+.profile-links a {
+    color: var(--main-text-color); /* Varsayılan ikon rengi */
+    font-size: 19px;
+    transition: color 0.3s ease;
+}
+
+.profile-links a.fade {
+    color: var(--profile-links-hover-color); /* Diğer ikonlar için soluk renk */
+}
+
+.profile-links a:hover {
+    color: var(--profile-links-color); /* Üzerine gelinen ikonun rengi */
+}
+
+
+.social-media .works-link {
+    color: var(--secondry-text-color);
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Renk geçişi için yumuşak bir efekt */
+}
+
+.about-me-content {
+    display: none;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.art-gallery, .about-me-content {
+    width: 100%;
+}
+.about-me-content p {
+    margin-top: 20px;
+    width: 100%;
+    color: var(--secondry-text-color);
+    text-align: left;
+}
+
+.social-media .about-me-link {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--main-text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Renk geçişi için yumuşak bir efekt */
+}
+
+.social-media .cv-link {
+    color: var(--main-text-color);
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Renk geçişi için yumuşak bir efekt */
+}
+
+.your-image-class {   
+    width: 150px; /* Resim boyutu */
+    margin: 0;
+    cursor: pointer;
+    transition: transform 0.2s; /* Hover efektleri */
+}
+
+/* Modal için stil */
+.modal {
+    display: none; /* Başlangıçta gizli */
+    position: fixed; /* Sabit konumda */
+    z-index: 1; /* Üstte kalması için */
+    left: 285px; /* Sosyal medya alanının genişliği kadar */
+    width: calc(100% - 285px);
+    top: 0;
+    height: 100%; /* Tam yükseklik */
+    overflow: auto; /* Taşmayı önle */
+    justify-content: center; /* Ortala */
+    align-items: center; /* Ortala */
+}
+
+/* Modal içeriği */
+.modal-content {
+    max-width: 80%; /* Maksimum genişlik */
+    max-height: 80%; /* Maksimum yükseklik */
+    transition: opacity 0.2s ease;
+}
+
+.modal-content.fade-out {
+    opacity: 0; /* Solma efekti */
+}
+
+/* Kapatma butonu */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: 060606;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001; /* Z-index'i yüksek bir değer yaparak butonun her zaman üstte olmasını sağla */
+}
+
+.modal-navigation {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-area {
+    cursor: pointer;
+    height: 100%;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.nav-area:hover {
+    opacity: 1;
+}
+
+/* Tıklama alanları */
+#prevImage {
+    z-index: 1000; /* Z-index'i kapatma butonundan düşük tut */
+    cursor: w-resize;
+    position: absolute;
+    left: 0; /* Sol tarafta */
+    width: 35%; /* Tıklama alanının genişliği */
+    height: 100%; /* Tam yükseklik */
+}
+
+#centerImage {
+    cursor: pointer;
+    position: absolute;
+    left: 30%; /* Ortada */
+    width: 30%; /* Tıklama alanının genişliği */
+    height: 100%; /* Tam yükseklik */
+}
+
+#nextImage {
+    cursor: e-resize;
+    position: absolute;
+    right: 0; /* Sağ tarafta */
+    width: 35%; /* Tıklama alanının genişliği */
+    height: 100%; /* Tam yükseklik */
+}
+
+
+/* Sanat galerisi */
+.art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    justify-content: center;
+}
+
+.art-column {
+    flex: 1 1 30%;
+    padding: 0 4px;
+    flex: 30%;
+}
+
+.art-column img {
+    width: 100%;
+    margin-top: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Hover efekt geçişleri */
+}
+
+/* Hover efekti: Resme gelindiğinde hafif bir zoom ve renk değişimi */
+.art-column img:hover {
+    /*transform: scale(1.05); /* Resmi %5 büyüt */
+    filter: brightness(1.1); /* Resmi hafif karart */
+}
+
+/* Varsayılan olarak metinleri gizle */
+.mobile-text {
+    display: none;
+}
+
+
+@media (max-width: 768px) {/* Dar ekranlar için */
+    main {
+        margin-left: 0;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .social-media h2 {
+        color: var(--secondry-text-color);
+        margin: 20px 0 0px;
+    }
+
+    .profile-links {
+        margin-top: 0px;
+    }
+
+    .image-info {
+        position: absolute;
+        bottom: 20px; /* Ekranın altından mesafe */
+        left: 20px; /* Ekranın solundan mesafe */
+        display: none;
+    }
+
+    .social-media {
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+        width: 100%;
+        position:relative;
+        flex-direction:column;
+        padding: 0px 0px 10px 0px;
+    }
+
+    .art-gallery {
+        flex-direction: column;
+        padding: 0 0px;
+    }
+
+    .art-column {
+        flex: 1 1 100%;
+        padding: 0 0px;
+
+    }
+
+    .mobile-text {
+        display: block;
+        text-align: left; /* Metni ortala */
+        margin-top: 8px;
+        color: var(--main-text-color); /* Metin rengi */
+        font-size: 14px; /* Metin boyutu */
+        margin-bottom: 15px;
+    }
+    .mobile-text .title {
+        font-weight: bold;
+        margin-bottom: 5px; /* Başlık ile açıklama arasında boşluk */
+    }
+    .mobile-text .description {
+        margin-top: 6px; /* Üst kısmına boşluk ekle */
+    }
+
+    .social-media .links-container {
+        display: flex;
+        justify-content: left; /* Ortada hizalama */
+        gap: 10px; /* İki bağlantı arasında boşluk */
+    }
+    
+    .works-link, .about-me-link {
+        display: inline-block; /* Yan yana görünüm için inline-block yap */
+        margin-top: 0; /* Gereksiz yukarı boşluğu kaldır */
+    }
+}
+
+@media (min-width: 769px) { /* Geniş ekranlar için */
+    .image-info {
+        position: absolute;
+        bottom: 20px; /* Ekranın altından mesafe */
+        color: var(--main-text-color); /* metin rengi */
+        border-radius: 5px;
+        margin-bottom: 30px;
+        display: none
+    }
+
+    .image-info strong{
+        font-size: 14px;
+        margin-bottom: 15px; /* Başlık ile açıklama arasında boşluk */
+    }
+
+    .image-info p{
+        font-size: 14px;
+        color: var(--secondry-text-color);
+    }
+
+}
