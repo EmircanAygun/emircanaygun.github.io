@@ -426,7 +426,7 @@ cvLink.addEventListener('click', function(event) {
     event.preventDefault(); // Varsayılan link davranışını engelle
     
     // PDF dosyasının yolunu belirtiyoruz
-    const pdfUrl = 'resume.pdf'; // Buraya CV PDF dosyanın yolunu yaz
+    const pdfUrl = 'resume.pdf'; // Buraya CV PDF dosyanın yolunu belirtiyoruz.
     
     // Yeni sekmede PDF'i açıyoruz
     window.open(pdfUrl, '_blank');
